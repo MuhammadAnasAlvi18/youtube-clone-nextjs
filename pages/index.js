@@ -1,8 +1,9 @@
 import Sidebar from "@/components/sidebar";
+import { faMagnifyingGlass, faMicrophone, faVideo } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Head from "next/head";
 import Image from "next/image";
-import { Col, Row } from "react-bootstrap";
-import Dropdown from "react-bootstrap/Dropdown";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -19,7 +20,19 @@ export default function Home() {
 
               <Sidebar />              
               <div className="video-wrapper">
-                
+                <div className="search-bar">
+                  <div className="search-input">
+                    <FontAwesomeIcon icon={faMagnifyingGlass}/>
+                    <input type="text" placeholder="Looking for something?"/>
+                    <Link href='javascript:void(0)'><span><FontAwesomeIcon icon={faMicrophone}/></span></Link>
+                  </div>
+                  <div className="search-shortcuts">
+                    <Link href="javascript:void(0)"><FontAwesomeIcon icon={faVideo} /></Link>
+                    <Link href="javascript:void(0)"><FontAwesomeIcon icon={faVideo} /></Link>
+                    <Link href="javascript:void(0)"><FontAwesomeIcon icon={faVideo} /></Link>
+                    <Link href="javascript:void(0)"><FontAwesomeIcon icon={faVideo} /></Link>
+                  </div>
+                </div>
               </div>
 
             </div>
