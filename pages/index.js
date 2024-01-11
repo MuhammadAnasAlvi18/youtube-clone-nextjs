@@ -1,11 +1,28 @@
 import Sidebar from "@/components/sidebar";
 import { faMagnifyingGlass, faMicrophone, faVideo } from "@fortawesome/free-solid-svg-icons";
+import {faBell} from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import fireship from '../assets/images/fireship.jpg'
+import beast from '../assets/images/beast.webp'
+import thumb from '../assets/images/thumb.jpeg'
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import Slider from "react-slick";
+import verified from "../assets/images/verified.png"
 
 export default function Home() {
+
+  const settings = {
+    dots: false,
+    infinite: false,
+    speed: 400,
+    variableWidth: true,
+    slidesToShow: 9,
+    slidesToScroll: 1
+  };
+
+
   return (
     <>
       <Head>
@@ -16,29 +33,179 @@ export default function Home() {
       </Head>
       <>
         <main>
-            <div className="youtube-main-wrapper">
-
-              <Sidebar />              
-              <div className="video-wrapper">
-                <div className="search-bar">
-                  <div className="search-input">
-                    <FontAwesomeIcon icon={faMagnifyingGlass}/>
-                    <input type="text" placeholder="Looking for something?"/>
-                    <Link href='javascript:void(0)'><span><FontAwesomeIcon icon={faMicrophone}/></span></Link>
-                  </div>
-                  <div className="search-shortcuts">
-                    <Link href="javascript:void(0)"><FontAwesomeIcon icon={faVideo} /></Link>
-                    <Link href="javascript:void(0)"><FontAwesomeIcon icon={faVideo} /></Link>
-                    <Link href="javascript:void(0)"><FontAwesomeIcon icon={faVideo} /></Link>
-                    <Link href="javascript:void(0)"><FontAwesomeIcon icon={faVideo} /></Link>
-                  </div>
+          <div className="youtube-main-wrapper">
+            <Sidebar />
+            <div className="video-wrapper">
+              <div className="search-bar">
+                <div className="search-input">
+                  <FontAwesomeIcon icon={faMagnifyingGlass} />
+                  <input type="text" placeholder="Looking for something?" />
+                  <Link href="javascript:void(0)">
+                    <span>
+                      <FontAwesomeIcon icon={faMicrophone} />
+                    </span>
+                  </Link>
+                </div>
+                <div className="search-shortcuts">
+                  <Link href="javascript:void(0)">
+                    <FontAwesomeIcon icon={faVideo} />
+                  </Link>
+                  <Link href="javascript:void(0)">
+                    <svg
+                      height="24"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill="#d2d3d5"
+                        d="M4 11h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm10 0h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zM4 21h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm10 0h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1z"
+                      />
+                    </svg>{" "}
+                  </Link>
+                  <Link href="javascript:void(0)" className="notifications">
+                    <FontAwesomeIcon icon={faBell} />
+                  </Link>
+                  <Link href="javascript:void(0)" className="profile-image">
+                    <Image src={fireship} />
+                  </Link>
                 </div>
               </div>
 
+              <div className="suggested-categories">
+                  <Slider {...settings}>
+                    <div className="suggested-links">
+                      <Link href="javascript:void(0)" className="active">All</Link>
+                    </div>
+                    <div className="suggested-links">
+                      <Link href="javascript:void(0)">Unity</Link>
+                    </div>
+                    <div className="suggested-links">
+                      <Link href="javascript:void(0)">Blenders</Link>
+                    </div>
+                    <div className="suggested-links">
+                      <Link href="javascript:void(0)">Dota 2</Link>
+                    </div>
+                    <div className="suggested-links">
+                      <Link href="javascript:void(0)">Editing</Link>
+                    </div>
+                    <div className="suggested-links">
+                      <Link href="javascript:void(0)">Computer Program</Link>
+                    </div>
+                    <div className="suggested-links">
+                      <Link href="javascript:void(0)">Apple Macbook Pro</Link>
+                    </div>
+                    <div className="suggested-links">
+                      <Link href="javascript:void(0)">Unreal Engine</Link>
+                    </div>
+                    <div className="suggested-links">
+                      <Link href="javascript:void(0)">Editing</Link>
+                    </div>
+                    <div className="suggested-links">
+                      <Link href="javascript:void(0)">Editing</Link>
+                    </div>
+                    <div className="suggested-links">
+                      <Link href="javascript:void(0)">Computer Program</Link>
+                    </div>
+                    <div className="suggested-links">
+                      <Link href="javascript:void(0)">Apple Macbook Pro</Link>
+                    </div>
+                    <div className="suggested-links">
+                      <Link href="javascript:void(0)">Unreal Engine</Link>
+                    </div>
+                    <div className="suggested-links">
+                      <Link href="javascript:void(0)">Editing</Link>
+                    </div>
+                  </Slider>
+                </div>
+
+                <div className="video-cards-flex">
+
+                  <div className="video-cards">
+                    <Link href="javascript:void(0)"><Image src={thumb} className="card-thumbnail"/></Link>
+                    <div className="channel-info">
+                      <div className="channel-logo"><Image src={beast}/></div>
+                      <Link href="javascript:void(0)" className="is-verified"><h6>Mr Beast</h6> <Image src={verified}/></Link>
+                    </div>
+                    <div className="video-title">
+                        <Link href="javascript:void(0)"><h6>Video title mr beast title mr beast Video title mr beast title mr beast Video title mr beast title mr beast</h6></Link>
+                    </div>
+                    <div className="video-info">
+                      <span>555K views</span>
+                      <span>•</span>
+                      <span>1 year ago</span>
+                    </div>
+                  </div>
+
+                  <div className="video-cards">
+                    <Image src={thumb} className="card-thumbnail"/>
+                    <div className="channel-info">
+                      <div className="channel-logo"><Image src={beast}/></div>
+                      <div className="is-verified"><h6>Mr Beast</h6> <Image src={verified}/></div>
+                    </div>
+                    <div className="video-title">
+                        <h6>Video title mr beast title mr beast</h6>
+                    </div>
+                    <div className="video-info">
+                      <span>555K views</span>
+                      <span>•</span>
+                      <span>1 year ago</span>
+                    </div>
+                  </div>
+
+                  <div className="video-cards">
+                    <Image src={thumb} className="card-thumbnail"/>
+                    <div className="channel-info">
+                      <div className="channel-logo"><Image src={beast}/></div>
+                      <div className="is-verified"><h6>Mr Beast</h6> <Image src={verified}/></div>
+                    </div>
+                    <div className="video-title">
+                        <h6>Video title mr beast title mr beast Video title mr beast title mr beast Video title mr beast title mr beast</h6>
+                    </div>
+                    <div className="video-info">
+                      <span>555K views</span>
+                      <span>•</span>
+                      <span>1 year ago</span>
+                    </div>
+                  </div>
+
+                  <div className="video-cards">
+                    <Image src={thumb} className="card-thumbnail"/>
+                    <div className="channel-info">
+                      <div className="channel-logo"><Image src={beast}/></div>
+                      <div className="is-verified"><h6>Mr Beast</h6> <Image src={verified}/></div>
+                    </div>
+                    <div className="video-title">
+                        <h6>Video title mr beast title mr beast Video title mr beast title mr beast Video title mr beast title mr beast</h6>
+                    </div>
+                    <div className="video-info">
+                      <span>555K views</span>
+                      <span>•</span>
+                      <span>1 year ago</span>
+                    </div>
+                  </div>
+
+                  <div className="video-cards">
+                    <Image src={thumb} className="card-thumbnail"/>
+                    <div className="channel-info">
+                      <div className="channel-logo"><Image src={beast}/></div>
+                      <div className="is-verified"><h6>Mr Beast</h6> <Image src={verified}/></div>
+                    </div>
+                    <div className="video-title">
+                        <h6>Video title mr beast title mr beast Video title mr beast title mr beast Video title mr beast title mr beast</h6>
+                    </div>
+                    <div className="video-info">
+                      <span>555K views</span>
+                      <span>•</span>
+                      <span>1 year ago</span>
+                    </div>
+                  </div>
+
+                </div>
             </div>
+          </div>
         </main>
       </>
-      
     </>
   );
 }
