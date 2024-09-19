@@ -22,9 +22,9 @@ const Sidebar = () => {
             <span className="top-light"></span>
             <span className="bottom-light"></span>
             <div className="sidebar-top-logo">
-                <Link href="javascript:void(0)" onClick={HandleSidebar}><Image src={bar} width={25} height={25}/></Link>
-                <Link href="javascript:void(0)" className="flex-logo">
-                <span><Image src={play} width={15} height={15}/></span>
+                <Link href="#" onClick={HandleSidebar}><Image alt="bar" src={bar} width={25} height={25}/></Link>
+                <Link href="#" className="flex-logo">
+                <span><Image alt="play" src={play} width={15} height={15}/></span>
                 <h5>YouTube</h5>
                 </Link>
             </div>
@@ -34,17 +34,17 @@ const Sidebar = () => {
                 <Link href="/subscriptions"> <span><FontAwesomeIcon icon={faCompass} /></span> Subscriptions</Link>
             </div>
             <div className="sidebar-links">
-                <Link href="javascript:void(0)"> <span><FontAwesomeIcon icon={faCirclePlay} /></span> Library</Link>
-                <Link href="javascript:void(0)"> <span><FontAwesomeIcon icon={faClock} /></span> History</Link>
-                <Link href="javascript:void(0)"> <span><FontAwesomeIcon icon={faVideo} /></span> Your Videos</Link>
-                <Link href="javascript:void(0)"> <span><FontAwesomeIcon icon={faHeart} /></span> Liked Videos</Link>
+                <Link href="#"> <span><FontAwesomeIcon icon={faCirclePlay} /></span> Library</Link>
+                <Link href="#"> <span><FontAwesomeIcon icon={faClock} /></span> History</Link>
+                <Link href="#"> <span><FontAwesomeIcon icon={faVideo} /></span> Your Videos</Link>
+                <Link href="#"> <span><FontAwesomeIcon icon={faHeart} /></span> Liked Videos</Link>
             </div>
             <div className="sidebar-links subscription-links">
                 <h6>Subscriptions</h6>
-                <Link href="javascript:void(0)" className="notify"> <span><Image src={fireship} width={30} height={30}/></span> Fireship</Link>
-                <Link href="javascript:void(0)"> <span><Image src={beast} width={30} height={30}/></span> Mr Beast</Link>
-                <Link href="javascript:void(0)"> <span><Image src={fireship} width={30} height={30}/></span> Fireship</Link>
-                <Link href="javascript:void(0)" className="notify"> <span><Image src={beast} width={30} height={30}/></span> Mr Beast</Link>
+                <Link href="#" className="notify"> <span><Image alt="fireship" src={fireship} width={30} height={30}/></span> Fireship</Link>
+                <Link href="#"> <span><Image alt="beast" src={beast} width={30} height={30}/></span> Mr Beast</Link>
+                <Link href="#"> <span><Image alt="fireship" src={fireship} width={30} height={30}/></span> Fireship</Link>
+                <Link href="#" className="notify"> <span><Image alt="beast" src={beast} width={30} height={30}/></span> Mr Beast</Link>
             </div>
             
         </div>

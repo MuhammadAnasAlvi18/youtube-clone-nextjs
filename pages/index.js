@@ -10,6 +10,10 @@ import Image from "next/image";
 import Link from "next/link";
 import Slider from "react-slick";
 import verified from "../assets/images/verified.png"
+import SuggestedLinks from "@/components/suggestedLinks";
+import Cards from "@/components/cards";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Home() {
 
@@ -21,6 +25,21 @@ export default function Home() {
     slidesToShow: 9,
     slidesToScroll: 1
   };
+
+  const count = 10;
+  const API_KEY = "AIzaSyC0H1tbrJnleqt5zDbcnPz_QmdlirL37TU";
+  const q = "funny";
+  const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&maxResults=${count}&part=snippet&type=video&q=${q}`;
+  const [YTvideos, setYTVideos] = useState(null);
+
+  useEffect(() => {
+
+    // axios.get(url)
+    // .then(response => {
+    //   console.log(response);
+    // })
+
+  });
 
 
   return (
@@ -40,17 +59,17 @@ export default function Home() {
                 <div className="search-input">
                   <FontAwesomeIcon icon={faMagnifyingGlass} />
                   <input type="text" placeholder="Looking for something?" />
-                  <Link href="javascript:void(0)">
+                  <Link href="#">
                     <span>
                       <FontAwesomeIcon icon={faMicrophone} />
                     </span>
                   </Link>
                 </div>
                 <div className="search-shortcuts">
-                  <Link href="javascript:void(0)">
+                  <Link href="#">
                     <FontAwesomeIcon icon={faVideo} />
                   </Link>
-                  <Link href="javascript:void(0)">
+                  <Link href="#">
                     <svg
                       height="24"
                       viewBox="0 0 24 24"
@@ -63,143 +82,38 @@ export default function Home() {
                       />
                     </svg>{" "}
                   </Link>
-                  <Link href="javascript:void(0)" className="notifications">
+                  <Link href="#" className="notifications">
                     <FontAwesomeIcon icon={faBell} />
                   </Link>
-                  <Link href="javascript:void(0)" className="profile-image">
-                    <Image src={fireship} />
+                  <Link href="#" className="profile-image">
+                    <Image alt="fireship" src={fireship} />
                   </Link>
                 </div>
               </div>
 
               <div className="suggested-categories">
                   <Slider {...settings}>
-                    <div className="suggested-links">
-                      <Link href="javascript:void(0)" className="active">All</Link>
-                    </div>
-                    <div className="suggested-links">
-                      <Link href="javascript:void(0)">Unity</Link>
-                    </div>
-                    <div className="suggested-links">
-                      <Link href="javascript:void(0)">Blenders</Link>
-                    </div>
-                    <div className="suggested-links">
-                      <Link href="javascript:void(0)">Dota 2</Link>
-                    </div>
-                    <div className="suggested-links">
-                      <Link href="javascript:void(0)">Editing</Link>
-                    </div>
-                    <div className="suggested-links">
-                      <Link href="javascript:void(0)">Computer Program</Link>
-                    </div>
-                    <div className="suggested-links">
-                      <Link href="javascript:void(0)">Apple Macbook Pro</Link>
-                    </div>
-                    <div className="suggested-links">
-                      <Link href="javascript:void(0)">Unreal Engine</Link>
-                    </div>
-                    <div className="suggested-links">
-                      <Link href="javascript:void(0)">Editing</Link>
-                    </div>
-                    <div className="suggested-links">
-                      <Link href="javascript:void(0)">Editing</Link>
-                    </div>
-                    <div className="suggested-links">
-                      <Link href="javascript:void(0)">Computer Program</Link>
-                    </div>
-                    <div className="suggested-links">
-                      <Link href="javascript:void(0)">Apple Macbook Pro</Link>
-                    </div>
-                    <div className="suggested-links">
-                      <Link href="javascript:void(0)">Unreal Engine</Link>
-                    </div>
-                    <div className="suggested-links">
-                      <Link href="javascript:void(0)">Editing</Link>
-                    </div>
+                    <SuggestedLinks text={"All"} isActive={true} />
+                    <SuggestedLinks text={"Unity"} isActive={false} />
+                    <SuggestedLinks text={"Blenders"} isActive={false} />
+                    <SuggestedLinks text={"Dota 2"} isActive={false} />
+                    <SuggestedLinks text={"Editing"} isActive={false} />
+                    <SuggestedLinks text={"Computer Program"} isActive={false} />
+                    <SuggestedLinks text={"Apple Macbook Pro"} isActive={false} />
+                    <SuggestedLinks text={"Unreal Engine"} isActive={false} />
+                    <SuggestedLinks text={"Editing"} isActive={false} />
+                    <SuggestedLinks text={"Editing"} isActive={false} />
+                    <SuggestedLinks text={"Computer Program"} isActive={false} />
+                    <SuggestedLinks text={"Apple Macbook Pro"} isActive={false} />
+                    <SuggestedLinks text={"Unreal Engine"} isActive={false} />
+                    <SuggestedLinks text={"Editing"} isActive={false} />
                   </Slider>
                 </div>
 
                 <div className="video-cards-flex">
 
-                  <div className="video-cards">
-                    <Link href="javascript:void(0)"><Image src={thumb} className="card-thumbnail"/></Link>
-                    <div className="channel-info">
-                      <div className="channel-logo"><Image src={beast}/></div>
-                      <Link href="javascript:void(0)" className="is-verified"><h6>Mr Beast</h6> <Image src={verified}/></Link>
-                    </div>
-                    <div className="video-title">
-                        <Link href="javascript:void(0)"><h6>Video title mr beast title mr beast Video title mr beast title mr beast Video title mr beast title mr beast</h6></Link>
-                    </div>
-                    <div className="video-info">
-                      <span>555K views</span>
-                      <span>•</span>
-                      <span>1 year ago</span>
-                    </div>
-                  </div>
-
-                  <div className="video-cards">
-                    <Image src={thumb} className="card-thumbnail"/>
-                    <div className="channel-info">
-                      <div className="channel-logo"><Image src={beast}/></div>
-                      <div className="is-verified"><h6>Mr Beast</h6> <Image src={verified}/></div>
-                    </div>
-                    <div className="video-title">
-                        <h6>Video title mr beast title mr beast</h6>
-                    </div>
-                    <div className="video-info">
-                      <span>555K views</span>
-                      <span>•</span>
-                      <span>1 year ago</span>
-                    </div>
-                  </div>
-
-                  <div className="video-cards">
-                    <Image src={thumb} className="card-thumbnail"/>
-                    <div className="channel-info">
-                      <div className="channel-logo"><Image src={beast}/></div>
-                      <div className="is-verified"><h6>Mr Beast</h6> <Image src={verified}/></div>
-                    </div>
-                    <div className="video-title">
-                        <h6>Video title mr beast title mr beast Video title mr beast title mr beast Video title mr beast title mr beast</h6>
-                    </div>
-                    <div className="video-info">
-                      <span>555K views</span>
-                      <span>•</span>
-                      <span>1 year ago</span>
-                    </div>
-                  </div>
-
-                  <div className="video-cards">
-                    <Image src={thumb} className="card-thumbnail"/>
-                    <div className="channel-info">
-                      <div className="channel-logo"><Image src={beast}/></div>
-                      <div className="is-verified"><h6>Mr Beast</h6> <Image src={verified}/></div>
-                    </div>
-                    <div className="video-title">
-                        <h6>Video title mr beast title mr beast Video title mr beast title mr beast Video title mr beast title mr beast</h6>
-                    </div>
-                    <div className="video-info">
-                      <span>555K views</span>
-                      <span>•</span>
-                      <span>1 year ago</span>
-                    </div>
-                  </div>
-
-                  <div className="video-cards">
-                    <Image src={thumb} className="card-thumbnail"/>
-                    <div className="channel-info">
-                      <div className="channel-logo"><Image src={beast}/></div>
-                      <div className="is-verified"><h6>Mr Beast</h6> <Image src={verified}/></div>
-                    </div>
-                    <div className="video-title">
-                        <h6>Video title mr beast title mr beast Video title mr beast title mr beast Video title mr beast title mr beast</h6>
-                    </div>
-                    <div className="video-info">
-                      <span>555K views</span>
-                      <span>•</span>
-                      <span>1 year ago</span>
-                    </div>
-                  </div>
+                  <Cards channelName={"Mr Beast"} channelLogo={beast} isChannelVerfied={true} Videothumbnail={thumb} Videotitle={"Video title mr beast title mr beast Video title mr beast title mr beast Video title"} Videoviews={"555K"} Videodate={"1 year ago"} />
+                  <Cards channelName={"Youtube"} channelLogo={beast} isChannelVerfied={false} Videothumbnail={thumb} Videotitle={"YOutube Famous Video"} Videoviews={"10.1M"} Videodate={"3 year ago"} />
 
                 </div>
             </div>
